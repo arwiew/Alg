@@ -1,13 +1,14 @@
-import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
+package Lesson2;
 
+import Lesson2.Array;
+import Lesson2.ArrayImpl;
 
 public class Main {
 
     public static void main(String[] args) {
 
 
-        final int ARR_SIZE = 80000;
+        final int ARR_SIZE = 8000;
 
         Array<Integer> arr = new ArrayImpl<>(ARR_SIZE);
                 for (int i = 0; i < ARR_SIZE ; i++) {
@@ -15,15 +16,17 @@ public class Main {
                     arr.add(random);
 
         }
-        Array<Integer> arr1 = arr;
-        Array<Integer> arr2 = arr;
-        Array<Integer> arr3 = arr;
+
+        Array<Integer> arr1 = arr.copy();
+        Array<Integer> arr2 = arr.copy();
+        Array<Integer> arr3 = arr.copy();
 
       timer(arr1,arr2,arr3);
 
     }
 
     private static void timer(Array<Integer> arr1, Array<Integer> arr2, Array<Integer> arr3){
+
         long startBubble = System.currentTimeMillis();
         arr1.sortBubble();
         long stopBubble = System.currentTimeMillis()-startBubble;
@@ -38,7 +41,6 @@ public class Main {
         arr3.sortSelect();
         long stopSelect = System.currentTimeMillis()-startSelect;
         System.out.println("Select time : " + stopSelect);
-
     }
 
     private static int randomGen(int i, int i1) {
@@ -48,11 +50,10 @@ public class Main {
         return x;
     }
 
-
 }
 
-  /*      Array<Integer> array = new ArrayImpl<>(8);
-        //Array<Integer> array = new SortedArrayImpl<>(8);
+  /*      Lesson2.Array<Integer> array = new Lesson2.ArrayImpl<>(8);
+        //Lesson2.Array<Integer> array = new Lesson2.SortedArrayImpl<>(8);
         array.add(1);
         array.add(5);
         array.add(3);
