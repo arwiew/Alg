@@ -1,8 +1,13 @@
+package Lesson2;
+
+import Lesson2.Array;
+
 import java.util.Arrays;
 
 public class ArrayImpl<E extends Object & Comparable<? super E>> implements Array<E> {
 
     private static final int INITIAL_CAPACITY = 16;
+
 
     protected E[] data;
     protected int size;
@@ -10,6 +15,11 @@ public class ArrayImpl<E extends Object & Comparable<? super E>> implements Arra
 
     public ArrayImpl() {
         this(INITIAL_CAPACITY);
+    }
+
+    private ArrayImpl (E[] data, int size){
+      this.data=data;
+      this.size=size;
     }
 
     @SuppressWarnings("unchecked")
@@ -134,4 +144,11 @@ public class ArrayImpl<E extends Object & Comparable<? super E>> implements Arra
             data[in] = temp;
         }
     }
+
+    @Override
+    public Array copy() {
+        return new ArrayImpl<>(Arrays.copyOf(data, size), size);
+    }
+
+
 }

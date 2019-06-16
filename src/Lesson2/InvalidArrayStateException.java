@@ -1,3 +1,5 @@
+package Lesson2;
+
 public class InvalidArrayStateException extends RuntimeException {
 
     public InvalidArrayStateException(int index,int arraySize) {

@@ -1,3 +1,7 @@
+package Lesson2;
+
+import Lesson2.ArrayImpl;
+
 public class SortedArrayImpl<E extends Object & Comparable<? super E>> extends ArrayImpl<E> {
 
     public SortedArrayImpl(int initialCapacity) {
